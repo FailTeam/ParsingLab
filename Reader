@@ -1,0 +1,76 @@
+package weather;
+
+import java.util.*;
+import java.io.*;
+
+public class Reader
+{
+    private static ArrayList<Input> list = new ArrayList<Input>();
+    
+    public static void main(String args[])
+    {
+        Set <String> tList = new TreeSet <String>();
+        String in_File = "weather_report.txt";
+        String out_File = "duplications.txt";
+        
+        try
+        {
+            FileReader reader = new FileReader(in_File);
+            Scanner in = new Scanner(reader);
+            PrintStream out = new PrintStream(new FileOutputStream(out_File));
+            String line = null;
+            
+            while(in.hasNextLine())
+            {
+                line = in.nextLine();
+                String new_str = process(line);
+                tList.add(new_str);
+            }
+            in.close();
+            
+            for(String s: tList)
+            {
+                if()
+                    tList.add(line);
+            }
+            Collections.sort((List) tList, Collections.reverseOrder());
+        }
+        catch(IOException e)
+        {
+            System.out.println("Input error");
+        }
+    }
+
+    private static String process(String line) 
+    {
+        String [] sp = null;
+        
+        String city, condition;
+        int temperature;
+        sp = line.split(" ");
+        
+        city = sp[0].substring(2, sp[3].length() - 1);
+        condition = sp[1].substring(2, sp[3].length() - 1);
+        temperature = Integer.parseInt(sp[4].substring(1, sp[4].length() - 1));
+        
+        return new Input(City, Condition, temperature); 
+    }
+    
+    private static void saveOutput() throws IOException
+   {
+       File outputfile = new File("duplications.txt");
+        
+       try (PrintStream out = new PrintStream( new FileOutputStream(outputfile))) 
+        {
+            out.println("Student name: " + "TONNY" + "\n");
+            out.println("input city list size is " + list.size() + "\n");
+            out.println("output citylist length is " );
+            
+            for (Input ct: tList)
+            {
+                out.println(ct.toString());
+            }
+            out.flush();
+        }
+    }
+}
