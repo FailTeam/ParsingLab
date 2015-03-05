@@ -1,0 +1,63 @@
+package weather;
+
+public class Input 
+{
+    private String City;
+    private String Condition;
+    private int temperature;
+    
+    Input(String City, String Condition, int temperature)
+    {
+        this.City = city;
+        this.temperature = temperature;
+        this.Condition = condition;
+    }
+
+    public String setCondition(String ctn)
+    {
+        return ctn;
+    }
+    
+    public String setCity(String c)
+    {
+        return c;
+    }
+    
+    public int setTemperature()
+    {
+        return temperature;
+    }
+    
+    public String getCondition()
+    {
+        return Condition;
+    }
+    
+    public String getCity()
+    {
+        return City;
+    }
+    
+    public int getTemperature()
+    {
+        return temperature;
+    }
+    
+    
+    public int compareTo(Input that)
+    {
+        return this.City.compareTo(that.City);
+    }
+    
+    public String toString(Input i)
+    {
+        return "City"+ City + "Condition" + Condition + "Temperature" + temperature;
+    }
+    
+    public boolean equals(Object ob)
+    {
+        Input i = (Input) ob;
+        return this.compareTo(i) == 0;
+    }
+    
+}
